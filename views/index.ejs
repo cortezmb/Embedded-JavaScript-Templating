@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
     <% if (pic.length > 0) { %>
      
         <% for( let i = 0; i < pic.length; i++ ) { %>
-            <img src="pic[i]" height = "300px" width="100px" alt="Images">
+            <img src="<%= pic[i] %>" height = "300px" alt="Images">
         <% } %>
     <% } %>
-   
+
+    <% for( let index = 0; index < student.length; index++ ) { %>
+
+        <h2 class="highlight"><%= student[index] %></h2>        
+    <% } %>     
+
+
+    <% for( let i = 0; i < cityArr.length; i++ ) { %>       
+        <% if (cityArr[i] == "Atlanta" || cityArr[i] == "Houston") { %>
+           <li><%= cityArr[i] %> </li>
+        <% } %>
+    <% } %>
+
 </body>
 </html>

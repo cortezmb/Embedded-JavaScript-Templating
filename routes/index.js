@@ -18,11 +18,31 @@ router.get('/', (req, res) => {
         "https://lh3.googleusercontent.com/f1YBWhcuPpf9A_ZK-YCeM6VrhYnxEwuTBs3ES4WBKG5u5OejtRIlLmZ2LNJaq753NQTQvY2c-A=w640-h400-e365", 
         "https://supertabthemes.com/wp-content/uploads/2020/06/1-3-758x426.jpg"]
 
-    res.render('index');
+    let name = [
+        "Woody",
+        "RJ",
+        "Micah",
+        "Jeremy",
+        "Chris",
+        "Dan",
+        "Cainan",
+        "Michael"
+    ]
+    
+    let cities = [
+        "Atanta",
+        "Houston",
+        "Seattle",
+        "Miami"
+    ]
 
-    firstName: "Michael", //this value can be an array, object or integer
-    lastName: "Cortez",
-    pic: pictures
+    res.render('index', {
+        firstName: "Michael", //this value can be an array, object or integer
+        lastName: "Cortez",
+        pic: pictures,
+        student: name,
+        cityArr: cities
+    });
 })
 
 //now we need to export the file (router.get) back to app.js
