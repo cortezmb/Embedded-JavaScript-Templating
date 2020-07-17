@@ -2,33 +2,21 @@ const express = require('express');
 
 const app = express();
 
-const PORT = 3000 ;
+const PORT = 3000;
 
-app.use(express.static('public'))
+app.set('view engine', 'ejs'); //references to directory named views
 
-app.get('/', (req, res) => {
+app.set('views', 'views');
 
-    res.send(`
-    
-        <link rel="stylesheet" href="style.css">
-        <h1>Front Page</h1>
-    `)
-})
+app.use(express.static('public'));
 
-app.get('/about us', (req, res) => {
+app.use(require('./routes/index'));//reference of where we placed the index
 
-    console.log("About Us");
-})
+app.use(require('./routes/aboutUs'));//reference of where we placed the about us
 
-app.get('/faq', (req, res) => {
+app.use(require('./routes/faq'));//reference of where we placed the faq
 
-    console.log("FAQs");
-})
-
-app.get('*', (req, res) => {
-
-    console.log("You've reached an error");
-} )
+app.use(require('./routes/error'));//reference of where we placed the error
 
 app.listen(PORT, () => {
 
